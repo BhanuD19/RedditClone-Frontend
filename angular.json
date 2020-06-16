@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "redditapp-frontend"
+    }
+  },
+  "defaultProject": "redditapp-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
