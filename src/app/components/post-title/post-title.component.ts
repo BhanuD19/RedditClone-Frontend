@@ -9,15 +9,12 @@ import {Router} from '@angular/router';
   templateUrl: './post-title.component.html',
   styleUrls: ['./post-title.component.scss']
 })
-export class PostTitleComponent implements OnInit {
+export class PostTitleComponent {
   // @ts-ignore
   faComments: faComments;
   @Input() posts: PostModel[];
 
-  constructor(private postService: PostService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private router: Router) { }
 
   goToPost(id: number): void {
     this.router.navigateByUrl('/view-post/' + id);

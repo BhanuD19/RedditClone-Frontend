@@ -6,12 +6,9 @@ import {Router} from '@angular/router';
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   goToCreatePost() {
     this.router.navigateByUrl('/create-post');

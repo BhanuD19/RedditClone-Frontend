@@ -7,9 +7,9 @@ import {SubredditResponse} from '../../shared/subreddit-response';
   templateUrl: './subreddit-side-bar.component.html',
   styleUrls: ['./subreddit-side-bar.component.scss']
 })
-export class SubredditSideBarComponent implements OnInit {
+export class SubredditSideBarComponent {
 
-  subreddits: Array<SubredditResponse>;
+  subreddits: Array<SubredditResponse> = [];
   displayViewAll: boolean;
 
   constructor(private subredditService: SubredditService) {
@@ -21,9 +21,6 @@ export class SubredditSideBarComponent implements OnInit {
         this.subreddits = data;
       }
     });
-  }
-
-  ngOnInit(): void {
   }
 
 }

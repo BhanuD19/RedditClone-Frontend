@@ -4,6 +4,7 @@ import {LoginRequestPayload} from './login-request.payload';
 import {AuthService} from '../shared/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -47,11 +48,12 @@ export class LoginComponent implements OnInit {
       console.log('Login Successful');
       if (data) {
         this.isError = false;
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('');
         this.toastr.success('Login Successful');
-      } else {
-        this.isError = true;
       }
+    }, error => {
+      this.isError = true;
+      throwError(error);
     });
   }
 }

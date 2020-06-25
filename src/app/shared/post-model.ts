@@ -1,5 +1,3 @@
-import {VoteType} from './vote-type';
-
 export class PostModel {
   id: number;
   postName: string;
@@ -10,6 +8,6 @@ export class PostModel {
   subredditName: string;
   commentCount: number;
   duration: string;
-  downVote: VoteType;
-  upVote: VoteType;
+  downVote: boolean;
+  upVote: boolean;
 }

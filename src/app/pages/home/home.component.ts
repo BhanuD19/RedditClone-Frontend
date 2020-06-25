@@ -9,7 +9,7 @@ import {AuthService} from '../../auth/shared/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
   posts: Array<PostModel> = [];
 
   constructor(private postService: PostService, private authService: AuthService) {
@@ -22,9 +22,5 @@ export class HomeComponent implements OnInit{
       console.log('could not retrieve posts');
       throwError(error);
     });
-  }
-
-  ngOnInit(): void {
-    this.authService.logout();
   }
 }

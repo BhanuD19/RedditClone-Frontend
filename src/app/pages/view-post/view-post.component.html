@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <hr />
-    <div class="col-md-9">
+    <div class="col-md-9 col-9">
       <div class="row post">
         <div class="col-md-1">
           <app-vote-button [post]="post"></app-vote-button>
@@ -19,7 +19,7 @@
           <hr />
           <a routerLink="post.url" class="post-title">{{post.postName}}</a>
           <div>
-            <p class="post-text" [innerHtml]="post.description"></p>
+            <p class="post-text" [innerHTML] = "post.description"></p>
           </div>
           <div class="post-comment">
             <form [formGroup]="commentForm" (ngSubmit)="postComment()">

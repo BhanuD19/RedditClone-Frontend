@@ -36,6 +36,7 @@ export class ViewPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPostById();
+    this.getCommentsForPost();
   }
 
   private getPostById() {

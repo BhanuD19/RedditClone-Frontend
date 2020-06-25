@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
 
   signupRequestPayload: SignupRequestPayload
   signupForm: FormGroup;
+
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {
     this.signupRequestPayload = {
       username: '',
@@ -28,7 +29,6 @@ export class SignupComponent implements OnInit {
       email : new FormControl('', [Validators.required, Validators.email]),
       password : new FormControl('', Validators.required)
     });
-    console.log('sign-up initialised');
   }
 
   signup() {
@@ -38,12 +38,10 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(this.signupRequestPayload)
       .subscribe((data) => {
-        console.log(data);
         this.router.navigate(['/login'],
           {queryParams: {registered: 'true'}});
       }, () => {
         this.toastr.error('Registration failed! Please try again');
       });
-
   }
 }

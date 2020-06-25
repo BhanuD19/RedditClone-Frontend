@@ -10,7 +10,7 @@ import {throwError} from 'rxjs';
   templateUrl: './create-subreddit.component.html',
   styleUrls: ['./create-subreddit.component.scss']
 })
-export class CreateSubredditComponent implements OnInit {
+export class CreateSubredditComponent {
 
   createSubredditForm: FormGroup;
   subredditModel: SubredditResponse;
@@ -28,15 +28,12 @@ export class CreateSubredditComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {
-  }
-
   createSubreddit() {
     this.subredditModel.name = this.createSubredditForm.get('title').value;
     this.subredditModel.description = this.createSubredditForm.get('description').value;
     this.subredditService.createSubreddit(this.subredditModel).subscribe(data => {
       this.router.navigateByUrl('/list-subreddits');
-    },error => {
+    }, error => {
       console.log('Error occured wile submitting subreddit form');
       throwError(error);
     });

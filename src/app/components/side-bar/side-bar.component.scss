@@ -13,6 +13,11 @@ sidebar{
   padding:5px;
   margin-top: 10px;
   margin-bottom: 10px;
+
+  img {
+    width: initial;
+    object-fit: contain;
+  }
 }
 
 .btnCreatePost, .btnCreateSubreddit{
