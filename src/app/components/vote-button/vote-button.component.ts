@@ -17,11 +17,12 @@ import {throwError} from 'rxjs';
 export class VoteButtonComponent implements OnInit {
 
   @Input() post: PostModel;
+
   votePayload: VotePayload;
   // @ts-ignore
-  faArrowUp: faArrowUp;
+  faArrowUp = faArrowUp;
   // @ts-ignore
-  faArrowDown: faArrowDown;
+  faArrowDown = faArrowDown;
 
 
   constructor(private voteService: VoteService,

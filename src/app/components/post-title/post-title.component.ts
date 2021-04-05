@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
-import {PostService} from '../../shared/post.service';
 import {PostModel} from '../../shared/post-model';
 import {Router} from '@angular/router';
 
@@ -11,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class PostTitleComponent {
   // @ts-ignore
-  faComments: faComments;
+  faComments = faComments;
   @Input() posts: PostModel[];
 
   constructor(private router: Router) { }

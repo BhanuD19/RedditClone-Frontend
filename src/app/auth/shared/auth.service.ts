@@ -54,11 +54,8 @@ export class AuthService {
   }
 
   refreshToken() {
-    console.log('inside refreshToken() with payload: ', this.refreshTokenPayload);
-
     return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/refresh/token', this.refreshTokenPayload)
       .pipe(tap(response => {
-        console.log('On requesting refresh token we got this response: ', response);
         this.localStorage.clear('authenticationToken');
         this.localStorage.clear('expiresAt');
         this.localStorage.store('authenticationToken', response.authenticationToken);
@@ -72,11 +69,7 @@ export class AuthService {
 
   logout() {
     this.httpClient.post('http://localhost:8080/api/auth/logout', this.refreshTokenPayload,
-      {responseType: 'text'}).subscribe(data => {
-        console.log(data);
-    }, error => {
-        throwError(error);
-    });
+      {responseType: 'text'});
     this.localStorage.clear('authenticationToken');
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
